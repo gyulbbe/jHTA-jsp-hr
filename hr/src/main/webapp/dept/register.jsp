@@ -10,7 +10,7 @@
 			/hr/dept/register.jsp
 		폼 데이터
 			name=xxx&managerId=xxx&locationId=xxx
-			
+
 		요청파라미터 정보
 		----------------------------------------
 			name			value
@@ -35,14 +35,7 @@
 	DeptDao deptDao = new DeptDao();
 	
 	deptDao.insertDept(dept);
+	
+	//부서목록을 제공해주는 list.jsp를 재요청하게 하는 응답을 보낸다.
+	response.sendRedirect("list.jsp");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>

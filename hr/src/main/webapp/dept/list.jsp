@@ -35,11 +35,12 @@
 	for (DeptList dept : depts) {
 %>
 			<tr>
-				<th><%=dept.getId() %></th>
-				<th><a href="detail.jsp?id=<%=dept.getId() %>"><%=dept.getName() %></a></th>
-				<th><%=dept.getManagerName() %></th>
-				<th><%=dept.getCity() %></th>
-				<th><%=dept.getCnt() %>명</th>
+				<td><%=dept.getId() %></td>
+				<td><a href="detail.jsp?id=<%=dept.getId() %>"><%=dept.getName() %></a></td>
+				<td><%=dept.getManagerName() %></td>
+				<td><%=dept.getCity() %></td>
+				<td><%=dept.getCnt() %>명</td>
+				<td><a href="modifyForm.jsp?id=<%=dept.getId() %>">수정</a></td>
 			</tr>
 <%
 	}

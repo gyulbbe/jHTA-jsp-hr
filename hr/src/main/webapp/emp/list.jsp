@@ -7,32 +7,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>직원 관리</title>
 </head>
 <body>
-	<h1>직원목록</h1>
-	<p>전체 직원목록을 표시합니다.</p>
+	<h1>전체 직원 목록</h1>
+	<p>전체 직원 목록을 확인하세요</p>
 	
-	<table border="1">
+	<table border="1" style="width:90%;">
 		<thead>
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>이메일</th>
-				<th>입사 날짜</th>
+				<th>연락처</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 <%
-	EmpDao eDao = new EmpDao();
-	List<Emp> emps = eDao.getAllEmployees();
-	for(Emp emp : emps) {
+	EmpDao empDao = new EmpDao();
+	List<Emp> emps = empDao.getAllEmployees();
+%>
+<%
+	for (Emp emp : emps) {
 %>
 			<tr>
-				<th><%=emp.getId() %></th>
-				<th><%=emp.getFirstName() %></th>
-				<th><%=emp.getEmail() %></th>
-				<th><%=emp.getHireDate() %></th>
+				<td><%=emp.getId() %></td>
+				<td><a href="detail.jsp?id=<%=emp.getId() %>"><%=emp.getFirstName() %></a></td>
+				<td><%=emp.getEmail() %></td>
+				<td><%=emp.getPhoneNumber() %></td>
+				<td><a href="modifyForm.jsp?id=<%=emp.getId() %>">수정</a></td>
 			</tr>
 <%
 	}
